@@ -1,7 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Runtime.CompilerServices;
+using System.Text;
+using AngleSharp;
+using AngleSharp.Parser.Html;
 using CommandLine;
+using FunApp.Data.Models;
 using FunApp.Web.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -13,6 +20,7 @@ namespace Sandbox
     {
         public static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine($"{typeof(Program).Namespace} ({string.Join(" ", args)}) starts working...");
             var serviceCollection = new ServiceCollection();
             ConfigureServices(serviceCollection);
@@ -27,14 +35,47 @@ namespace Sandbox
 
         private static void SandboxCode(IServiceProvider serviceProvider)
         {
-            var db = serviceProvider.GetService<FunAppContext>();
-            Console.WriteLine(db.Users.Count());
-            // TODO: Code here
+            var context = serviceProvider.GetService<FunAppContext>();
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            var parser = new HtmlParser();
+            var webClient = new WebClient {Encoding = Encoding.GetEncoding("windows-1251") };
+
+            for (var i = 3000; i < 10000; i++)
+            {
+                var url = "http://fun.dir.bg/vic_open.php?id=" + i;
+                var html = webClient.DownloadString(url);
+                var document = parser.Parse(html);
+                var jokeContent = document.QuerySelector("#newsbody")?.TextContent?.Trim();
+                var categoryName = document.QuerySelector(".tag-links-left a")?.TextContent?.Trim();
+
+                if (!string.IsNullOrWhiteSpace(jokeContent) &&
+                    !string.IsNullOrWhiteSpace(categoryName))
+                {
+                    var category = context.Categories.FirstOrDefault(x => x.Name == categoryName);
+                    if (category == null)
+                    {
+                        category = new Category
+                        {
+                            Name = categoryName,
+                        };
+                    }
+
+                    var joke = new Joke()
+                    {
+                        Category = category,
+                        Content = jokeContent,
+                    };
+
+                    context.Jokes.Add(joke);
+                    context.SaveChanges();
+                }
+
+                Console.WriteLine($"{i} => {categoryName}");
+            }
         }
 
         private static void ConfigureServices(ServiceCollection serviceCollection)
         {
-
             var configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", false, true)
                 .AddEnvironmentVariables()
