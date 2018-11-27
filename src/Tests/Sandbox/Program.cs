@@ -5,9 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using AngleSharp;
 using AngleSharp.Parser.Html;
 using CommandLine;
+using FunApp.Data;
+using FunApp.Data.Common;
 using FunApp.Data.Models;
 using FunApp.Web.Models;
 using Microsoft.EntityFrameworkCore;
@@ -40,10 +43,28 @@ namespace Sandbox
             var parser = new HtmlParser();
             var webClient = new WebClient {Encoding = Encoding.GetEncoding("windows-1251") };
 
-            for (var i = 3000; i < 10000; i++)
+            for (var i = 4233; i < 10000; i++)
             {
                 var url = "http://fun.dir.bg/vic_open.php?id=" + i;
-                var html = webClient.DownloadString(url);
+                string html = null;
+                for (int j = 0; j < 10; j++)
+                {
+                    try
+                    {
+                        html = webClient.DownloadString(url);
+                        break;
+                    }
+                    catch (Exception e)
+                    {
+                        Thread.Sleep(10000);
+                    }
+                }
+
+                if (string.IsNullOrWhiteSpace(html))
+                {
+                    continue;
+                }
+
                 var document = parser.Parse(html);
                 var jokeContent = document.QuerySelector("#newsbody")?.TextContent?.Trim();
                 var categoryName = document.QuerySelector(".tag-links-left a")?.TextContent?.Trim();
@@ -74,16 +95,18 @@ namespace Sandbox
             }
         }
 
-        private static void ConfigureServices(ServiceCollection serviceCollection)
+        private static void ConfigureServices(ServiceCollection services)
         {
             var configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", false, true)
                 .AddEnvironmentVariables()
                 .Build();
 
-            serviceCollection.AddDbContext<FunAppContext>(options =>
+            services.AddDbContext<FunAppContext>(options =>
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
         }
     }
 }
