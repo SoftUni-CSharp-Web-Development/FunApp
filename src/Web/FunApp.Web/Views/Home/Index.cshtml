@@ -11,7 +11,7 @@
         <div class="col-md-4 clearfix">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    @joke.Content
+                    @Html.Raw(joke.HtmlContent)
                 </div>
                 <div class="panel-footer">
                     @joke.CategoryName

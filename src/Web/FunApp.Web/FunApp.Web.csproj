@@ -15,8 +15,15 @@
     <ProjectReference Include="..\..\Data\FunApp.Data.Models\FunApp.Data.Models.csproj" />
     <ProjectReference Include="..\..\Data\FunApp.Data\FunApp.Data.csproj" />
     <ProjectReference Include="..\..\Services\FunApp.Services.DataServices\FunApp.Services.DataServices.csproj" />
+    <ProjectReference Include="..\..\Services\FunApp.Services.MachineLearning\FunApp.Services.MachineLearning.csproj" />
     <ProjectReference Include="..\..\Services\FunApp.Services.Mapping\FunApp.Services.Mapping.csproj" />
     <ProjectReference Include="..\..\Services\FunApp.Services.Models\FunApp.Services.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="MlModels\JokesCategoryModel.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

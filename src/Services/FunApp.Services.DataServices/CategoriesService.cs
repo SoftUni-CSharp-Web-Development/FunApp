@@ -29,5 +29,11 @@ namespace FunApp.Services.DataServices
         {
             return this.categoriesRepository.All().Any(x => x.Id == categoryId);
         }
+
+        public int? GetCategoryId(string name)
+        {
+            var category = this.categoriesRepository.All().FirstOrDefault(x => x.Name == name);
+            return category?.Id;
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿@using FunApp.Services.Models.Categories
+@using Microsoft.AspNetCore.Antiforgery
+@inject IAntiforgery  AF
 @model FunApp.Web.Model.Jokes.CreateJokeInputModel
 
 @{
@@ -22,8 +24,10 @@
                 <select asp-for="CategoryId" asp-items="categories" class="form-control"></select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
+            <div id="SuggestedCategory"></div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <input value="Suggest category" class="btn btn-default" id="CategorizeButton" />
             </div>
         </form>
     </div>
@@ -35,4 +39,20 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $("#CategorizeButton").click(function () {
+            var joke = $("#Content").val();
+            var aft = "@AF.GetTokens(this.Context).RequestToken";
+            $.ajax({
+                type: "POST",
+                url: "/Jokes/SuggestCategory",
+                data: { joke: joke },
+                success: function(data) {
+                    $("#SuggestedCategory").html("Suggested category: " + data.categoryName);
+                    $("#CategoryId").val(data.categoryId);
+                }
+            });
+        });
+    </script>
 }
