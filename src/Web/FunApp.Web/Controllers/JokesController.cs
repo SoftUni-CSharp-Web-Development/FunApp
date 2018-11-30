@@ -50,7 +50,7 @@ namespace FunApp.Web.Controllers
 
         public IActionResult Details(int id)
         {
-            var joke = this.jokesService.GetJokeById(id);
+            var joke = this.jokesService.GetJokeById<JokeDetailsViewModel>(id);
             return this.View(joke);
         }
     }
