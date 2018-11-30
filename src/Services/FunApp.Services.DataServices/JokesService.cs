@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FunApp.Data.Common;
 using FunApp.Data.Models;
+using FunApp.Services.Mapping;
 using FunApp.Services.Models.Home;
 using FunApp.Services.Models.Jokes;
 using Remotion.Linq.Utilities;
@@ -28,13 +29,7 @@ namespace FunApp.Services.DataServices
         {
             var jokes = this.jokesRepository.All()
                 .OrderBy(x => Guid.NewGuid())
-                .Select(
-                    x => new IndexJokeViewModel
-                    {
-                        Id = x.Id,
-                        Content = x.Content,
-                        CategoryName = x.Category.Name,
-                    }).Take(count).ToList();
+                .To<IndexJokeViewModel>().Take(count).ToList();
 
             return jokes;
         }
@@ -60,11 +55,9 @@ namespace FunApp.Services.DataServices
 
         public JokeDetailsViewModel GetJokeById(int id)
         {
-            var joke = this.jokesRepository.All().Where(x => x.Id == id).Select(x => new JokeDetailsViewModel
-            {
-                Content = x.Content,
-                CategoryName = x.Category.Name,
-            }).FirstOrDefault();
+            var joke = this.jokesRepository.All().Where(x => x.Id == id)
+                .To<JokeDetailsViewModel>()
+                .FirstOrDefault();
             return joke;
         }
     }
