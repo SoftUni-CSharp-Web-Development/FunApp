@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using FunApp.Data.Models;
 using FunApp.Services.Models.Home;
+using FunApp.Services.Models.Jokes;
 
 namespace FunApp.Services.DataServices
 {
@@ -9,5 +11,9 @@ namespace FunApp.Services.DataServices
         IEnumerable<IndexJokeViewModel> GetRandomJokes(int count);
 
         int GetCount();
+
+        Task<int> Create(int categoryId, string content);
+
+        JokeDetailsViewModel GetJokeById(int id);
     }
 }
