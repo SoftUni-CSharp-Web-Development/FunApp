@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FunApp.Web.Models.Home
+namespace FunApp.Services.Models.Home
 {
     public class IndexViewModel
     {

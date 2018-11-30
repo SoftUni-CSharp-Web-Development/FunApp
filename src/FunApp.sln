@@ -9,15 +9,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Web", "Web\FunApp.We
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{C217EEE4-0929-42DB-9D9C-DC3352C3AA99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Data", "Data\FunApp.Data\FunApp.Data.csproj", "{C41D4F1C-A801-4367-BC2E-6F6CD2DDACDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Data", "Data\FunApp.Data\FunApp.Data.csproj", "{C41D4F1C-A801-4367-BC2E-6F6CD2DDACDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Data.Models", "Data\FunApp.Data.Models\FunApp.Data.Models.csproj", "{8FF6FDBC-B111-43D1-AB62-29F1BA824B30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Data.Models", "Data\FunApp.Data.Models\FunApp.Data.Models.csproj", "{8FF6FDBC-B111-43D1-AB62-29F1BA824B30}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CB98ED41-8A8C-4A91-AC1A-C49CDA7E3A68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Tests\Sandbox\Sandbox.csproj", "{E63FA8FF-EDCC-4B16-897A-281F7045D434}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox", "Tests\Sandbox\Sandbox.csproj", "{E63FA8FF-EDCC-4B16-897A-281F7045D434}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Data.Common", "Data\FunApp.Data.Common\FunApp.Data.Common.csproj", "{EE5E55CD-8457-4A2F-8775-221FCA7046F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Data.Common", "Data\FunApp.Data.Common\FunApp.Data.Common.csproj", "{EE5E55CD-8457-4A2F-8775-221FCA7046F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{5756AA1E-A9E7-4BFB-BCEE-6F49A62C5329}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Services.DataServices", "Services\FunApp.Services.DataServices\FunApp.Services.DataServices.csproj", "{3C814D17-F0A5-4D31-80DB-9AECF6E37879}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Services.Models", "Services\FunApp.Services.Models\FunApp.Services.Models.csproj", "{6C1ED8BA-7A5F-4113-98CC-37512277A741}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +51,14 @@ Global
 		{EE5E55CD-8457-4A2F-8775-221FCA7046F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE5E55CD-8457-4A2F-8775-221FCA7046F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE5E55CD-8457-4A2F-8775-221FCA7046F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C814D17-F0A5-4D31-80DB-9AECF6E37879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C814D17-F0A5-4D31-80DB-9AECF6E37879}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C814D17-F0A5-4D31-80DB-9AECF6E37879}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C814D17-F0A5-4D31-80DB-9AECF6E37879}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C1ED8BA-7A5F-4113-98CC-37512277A741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C1ED8BA-7A5F-4113-98CC-37512277A741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C1ED8BA-7A5F-4113-98CC-37512277A741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C1ED8BA-7A5F-4113-98CC-37512277A741}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +69,8 @@ Global
 		{8FF6FDBC-B111-43D1-AB62-29F1BA824B30} = {C217EEE4-0929-42DB-9D9C-DC3352C3AA99}
 		{E63FA8FF-EDCC-4B16-897A-281F7045D434} = {CB98ED41-8A8C-4A91-AC1A-C49CDA7E3A68}
 		{EE5E55CD-8457-4A2F-8775-221FCA7046F9} = {C217EEE4-0929-42DB-9D9C-DC3352C3AA99}
+		{3C814D17-F0A5-4D31-80DB-9AECF6E37879} = {5756AA1E-A9E7-4BFB-BCEE-6F49A62C5329}
+		{6C1ED8BA-7A5F-4113-98CC-37512277A741} = {5756AA1E-A9E7-4BFB-BCEE-6F49A62C5329}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3E79F9E-1552-489E-9458-3E2BEC48CF54}

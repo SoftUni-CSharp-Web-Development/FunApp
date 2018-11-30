@@ -1,8 +1,10 @@
-﻿@model FunApp.Web.Models.Home.IndexViewModel
+﻿@model FunApp.Services.Models.Home.IndexViewModel
 @{
     ViewData["Title"] = "Home Page";
+    var number = 1.234567M;
 }
 
+<h1>@number.ToString("F3")</h1>
 <div class="row">
     @foreach (var joke in Model.Jokes)
     {
