@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using FunApp.Data;
 using FunApp.Data.Common;
 using FunApp.Data.Models;
@@ -38,12 +39,12 @@ namespace FunApp.Web
             AutoMapperConfig.RegisterMappings(
                 typeof(IndexViewModel).Assembly,
                 typeof(CreateJokeInputModel).Assembly
-            );
+            );  
 
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
+             //   options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             
@@ -64,6 +65,7 @@ namespace FunApp.Web
                 .AddEntityFrameworkStores<FunAppContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddAutoMapper();
 
             // Application services
             services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
@@ -73,8 +75,23 @@ namespace FunApp.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, FunAppContext context)
         {
+            if (!context.Jokes.Any())
+            {
+                for (int i = 0; i < 12; i++)
+                {
+                    var joke = new Joke
+                    {
+                        CategoryId = 1,
+                        Content = $"It's a joke!"
+                    };
+                    context.Jokes.Add(joke);
+                }
+
+                context.SaveChanges();
+            }
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -94,6 +111,10 @@ namespace FunApp.Web
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "areas",
+                    template: "{area:exists}/{controller=Categories}/{action=Index}/{id?}");
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

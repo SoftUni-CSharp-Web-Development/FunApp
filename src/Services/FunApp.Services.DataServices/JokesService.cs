@@ -59,5 +59,11 @@ namespace FunApp.Services.DataServices
                 .To<TViewModel>().FirstOrDefault();
             return joke;
         }
+
+        public IEnumerable<JokeSimpleViewModel> GetAllByCategory(int categoryId) 
+            => this.jokesRepository
+                    .All()
+                    .Where(j => j.CategoryId == categoryId)
+                    .To<JokeSimpleViewModel>();
     }
 }

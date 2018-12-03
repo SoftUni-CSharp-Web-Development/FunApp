@@ -15,5 +15,7 @@ namespace FunApp.Services.DataServices
         Task<int> Create(int categoryId, string content);
 
         TViewModel GetJokeById<TViewModel>(int id);
+
+        IEnumerable<JokeSimpleViewModel> GetAllByCategory(int categoryId);
     }
 }

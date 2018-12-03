@@ -1,0 +1,25 @@
+﻿@model List<FunApp.Services.Models.Categories.CategoryIdAndNameViewModel>
+
+<div class="row">
+    <a class="btn btn-primary" asp-action="Create" asp-controller="Categories" asp-area="Administration">Create Category</a>
+</div>
+<div class="row">
+    <div class="container">
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <a asp-controller="Categories"
+               asp-action="Details"
+               asp-route-id="@Model[i].Id">
+                @Model[i].Name
+            </a>
+
+            <a class="btn btn-primary" asp-action="Edit" asp-controller="Categories" asp-area="Administration"  asp-route-id="@Model[i].Id">Edit</a>
+            <a class="btn btn-primary" asp-action="Delete" asp-controller="Categories" asp-area="Administration"  asp-route-id="@Model[i].Id">Delete</a>
+
+            if (i != @Model.Count() - 1)
+            {
+                <hr />
+            }
+        }
+    </div>
+</div>

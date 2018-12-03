@@ -1,0 +1,18 @@
+﻿@using FunApp.Web.Areas.Administration.Models.Categories
+
+@model CreateCategoryInputModel
+
+<title>Create Category</title>
+
+<div class="row">
+    <h3>Create new Jokes Category</h3>
+    <form asp-action="Create" asp-controller="Categories" asp-area="Administration" method="post" class="form-horizontal">
+        <div class="form-group col-md-4">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <input type="submit" class="btn btn-primary" value="Create Category" />
+        </div>
+
+    </form>
+
+</div>
