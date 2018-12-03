@@ -14,6 +14,9 @@
             @Model[i].Content
         </a>
 
+        <input type="number" min="1" max="5" class="rating_@Model[i].Id"/> 
+        <button class="btn btn-info rateButton" data-item-id="@Model[i].Id">Rate</button>
+
         if (i != @Model.Count() - 1)
         {
             <hr />
@@ -21,4 +24,23 @@
     }
 </div>
 
-@Html.PagedListPager(Model, page => Url.Action("Details","Categories", new { page }))
+@Html.PagedListPager(Model, page => Url.Action("Details", "Categories", new { page }))
+
+<script>
+    $(function () {
+        $('.rateButton').click(function (e) {
+            var rateButton = $(e.target);
+            var jokeId = rateButton.attr('data-item-id');
+            var ratingSelector = '.rating_' + jokeId;
+            var rating = $(ratingSelector).val();
+
+            if (rating !== 0) {
+                $.post("/Jokes/RateJoke", { jokeId, rating })
+                    .done(function(data) {
+                        alert(data);
+                    });
+            }
+         
+        });
+    });
+</script>

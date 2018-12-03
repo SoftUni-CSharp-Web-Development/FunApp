@@ -17,5 +17,7 @@ namespace FunApp.Services.DataServices
         TViewModel GetJokeById<TViewModel>(int id);
 
         IEnumerable<JokeSimpleViewModel> GetAllByCategory(int categoryId);
+
+        bool AddRatingToJoke(int jokeId, int rating);
     }
 }

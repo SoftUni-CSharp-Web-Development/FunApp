@@ -9,6 +9,7 @@ using FunApp.Web.Model.Jokes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
 
 namespace FunApp.Web.Controllers
 {
@@ -64,6 +65,18 @@ namespace FunApp.Web.Controllers
             var category = this.jokesCategorizer.Categorize("MlModels/JokesCategoryModel.zip", joke);
             var categoryId = this.categoriesService.GetCategoryId(category);
             return new SuggestCategoryResult { CategoryId = categoryId ?? 0, CategoryName = category };
+        }
+
+        [HttpPost]
+        public object RateJoke(int jokeId, int rating)
+        {
+            var rateJoke = this.jokesService.AddRatingToJoke(jokeId, rating);
+            if (!rateJoke)
+            {
+                return Json($"An error occurred while processing your vote");
+            }
+            var successMessage = $"You successfully rated the joke with rating of {rating}";
+            return Json(successMessage);
         }
     }
 

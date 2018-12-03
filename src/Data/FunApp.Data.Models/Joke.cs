@@ -8,6 +8,10 @@ namespace FunApp.Data.Models
 
         public int CategoryId { get; set; }
 
+        public double Rating { get; set; }
+
+        public int RatingVotes { get; set; }
+
         public virtual Category Category { get; set; }
     }
 }

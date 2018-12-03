@@ -65,5 +65,18 @@ namespace FunApp.Services.DataServices
                     .All()
                     .Where(j => j.CategoryId == categoryId)
                     .To<JokeSimpleViewModel>();
+
+        public bool AddRatingToJoke(int jokeId, int rating)
+        {
+            var joke = this.jokesRepository.All().FirstOrDefault(j => j.Id == jokeId);
+            if (joke != null)
+            {
+                joke.Rating += rating;
+                this.jokesRepository.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
     }
 }
