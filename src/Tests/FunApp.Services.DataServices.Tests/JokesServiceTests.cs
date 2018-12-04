@@ -26,6 +26,7 @@ namespace FunApp.Services.DataServices.Tests
             }.AsQueryable());
             var service = new JokesService(jokesRepository.Object, null);
             Assert.Equal(3, service.GetCount());
+            jokesRepository.Verify(x => x.All(), Times.Once);
         }
 
         [Fact]

@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Services.MachineLear
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Services.DataServices.Tests", "Tests\FunApp.Services.DataServices.Tests\FunApp.Services.DataServices.Tests.csproj", "{71E14275-4B18-4734-8D3B-FC2DA1814D2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Web.Tests", "Tests\FunApp.Web.Tests\FunApp.Web.Tests.csproj", "{293C67F5-1522-409E-9265-49E744A6FEF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{71E14275-4B18-4734-8D3B-FC2DA1814D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71E14275-4B18-4734-8D3B-FC2DA1814D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71E14275-4B18-4734-8D3B-FC2DA1814D2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{293C67F5-1522-409E-9265-49E744A6FEF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{293C67F5-1522-409E-9265-49E744A6FEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{293C67F5-1522-409E-9265-49E744A6FEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{293C67F5-1522-409E-9265-49E744A6FEF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +98,7 @@ Global
 		{1C03FC08-3D67-4228-84B3-8C114E6D3625} = {5756AA1E-A9E7-4BFB-BCEE-6F49A62C5329}
 		{29C87C6F-C490-4FED-8050-4E6B246D985B} = {5756AA1E-A9E7-4BFB-BCEE-6F49A62C5329}
 		{71E14275-4B18-4734-8D3B-FC2DA1814D2A} = {CB98ED41-8A8C-4A91-AC1A-C49CDA7E3A68}
+		{293C67F5-1522-409E-9265-49E744A6FEF6} = {CB98ED41-8A8C-4A91-AC1A-C49CDA7E3A68}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3E79F9E-1552-489E-9458-3E2BEC48CF54}
