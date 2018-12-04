@@ -3,10 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <UserSecretsId>aspnet-FunApp.Web-44D7697C-476D-4D10-8AAC-D8C4F4FD8B68</UserSecretsId>
+    <ApplicationInsightsResourceId>/subscriptions/9c5540eb-59c5-47d8-9812-00f7249e9502/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/FunApp.Web</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/9c5540eb-59c5-47d8-9812-00f7249e9502/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/FunApp.Web</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.6" PrivateAssets="All" />
@@ -48,6 +51,10 @@
     <Content Update="Areas\Administration\Views\_ViewStart.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
 </Project>
