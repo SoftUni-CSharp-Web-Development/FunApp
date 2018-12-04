@@ -21,13 +21,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Data.Common", "Data\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{5756AA1E-A9E7-4BFB-BCEE-6F49A62C5329}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Services.DataServices", "Services\FunApp.Services.DataServices\FunApp.Services.DataServices.csproj", "{3C814D17-F0A5-4D31-80DB-9AECF6E37879}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Services.DataServices", "Services\FunApp.Services.DataServices\FunApp.Services.DataServices.csproj", "{3C814D17-F0A5-4D31-80DB-9AECF6E37879}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Services.Models", "Services\FunApp.Services.Models\FunApp.Services.Models.csproj", "{6C1ED8BA-7A5F-4113-98CC-37512277A741}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Services.Models", "Services\FunApp.Services.Models\FunApp.Services.Models.csproj", "{6C1ED8BA-7A5F-4113-98CC-37512277A741}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Services.Mapping", "Services\FunApp.Services.Mapping\FunApp.Services.Mapping.csproj", "{1C03FC08-3D67-4228-84B3-8C114E6D3625}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Services.Mapping", "Services\FunApp.Services.Mapping\FunApp.Services.Mapping.csproj", "{1C03FC08-3D67-4228-84B3-8C114E6D3625}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Services.MachineLearning", "Services\FunApp.Services.MachineLearning\FunApp.Services.MachineLearning.csproj", "{29C87C6F-C490-4FED-8050-4E6B246D985B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Services.MachineLearning", "Services\FunApp.Services.MachineLearning\FunApp.Services.MachineLearning.csproj", "{29C87C6F-C490-4FED-8050-4E6B246D985B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Services.DataServices.Tests", "Tests\FunApp.Services.DataServices.Tests\FunApp.Services.DataServices.Tests.csproj", "{71E14275-4B18-4734-8D3B-FC2DA1814D2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{29C87C6F-C490-4FED-8050-4E6B246D985B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29C87C6F-C490-4FED-8050-4E6B246D985B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29C87C6F-C490-4FED-8050-4E6B246D985B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71E14275-4B18-4734-8D3B-FC2DA1814D2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71E14275-4B18-4734-8D3B-FC2DA1814D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71E14275-4B18-4734-8D3B-FC2DA1814D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71E14275-4B18-4734-8D3B-FC2DA1814D2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +91,7 @@ Global
 		{6C1ED8BA-7A5F-4113-98CC-37512277A741} = {5756AA1E-A9E7-4BFB-BCEE-6F49A62C5329}
 		{1C03FC08-3D67-4228-84B3-8C114E6D3625} = {5756AA1E-A9E7-4BFB-BCEE-6F49A62C5329}
 		{29C87C6F-C490-4FED-8050-4E6B246D985B} = {5756AA1E-A9E7-4BFB-BCEE-6F49A62C5329}
+		{71E14275-4B18-4734-8D3B-FC2DA1814D2A} = {CB98ED41-8A8C-4A91-AC1A-C49CDA7E3A68}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3E79F9E-1552-489E-9458-3E2BEC48CF54}
