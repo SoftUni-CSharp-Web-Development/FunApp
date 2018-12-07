@@ -77,21 +77,6 @@ namespace FunApp.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, FunAppContext context)
         {
-            if (!context.Jokes.Any())
-            {
-                for (int i = 0; i < 12; i++)
-                {
-                    var joke = new Joke
-                    {
-                        CategoryId = 1,
-                        Content = $"It's a joke!"
-                    };
-                    context.Jokes.Add(joke);
-                }
-
-                context.SaveChanges();
-            }
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
