@@ -10,6 +10,7 @@ using FunApp.Services.DataServices;
 using FunApp.Services.MachineLearning;
 using FunApp.Services.Mapping;
 using FunApp.Services.Models.Home;
+using FunApp.Web.Infrastructure;
 using FunApp.Web.Model.Jokes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -21,6 +22,7 @@ using Microsoft.EntityFrameworkCore;
 using FunApp.Web.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Routing;
 
 namespace FunApp.Web
 {
@@ -64,8 +66,15 @@ namespace FunApp.Web
                 )
                 .AddEntityFrameworkStores<FunAppContext>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddAutoMapper();
+
+
+            services.Configure<RouteOptions>(routeOptions =>
+            {
+                routeOptions.ConstraintMap.Add("code", typeof(CustomRouteConstraint));
+            });
 
             // Application services
             services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));

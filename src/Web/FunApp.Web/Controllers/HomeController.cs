@@ -21,8 +21,8 @@ namespace FunApp.Web.Controllers
         {
             this.jokesService = jokesService;
         }
-
-        public IActionResult Index()
+        
+        public IActionResult Index(int id)
         {
             var jokes = this.jokesService.GetRandomJokes(20);
             var viewModel = new IndexViewModel

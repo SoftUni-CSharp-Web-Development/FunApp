@@ -1,0 +1,17 @@
+﻿@page
+@model FunApp.Web.Pages.Categories.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Categories</h2>
+<div class="row">
+    @foreach (var category in Model.Categories)
+    {
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <a class="btn btn-primary" asp-page="Details" asp-route-id="@category.Id">
+                @category.NameAndCount
+            </a>
+        </div>
+    }
+</div>

@@ -24,6 +24,7 @@
     <ProjectReference Include="..\..\Services\FunApp.Services.MachineLearning\FunApp.Services.MachineLearning.csproj" />
     <ProjectReference Include="..\..\Services\FunApp.Services.Mapping\FunApp.Services.Mapping.csproj" />
     <ProjectReference Include="..\..\Services\FunApp.Services.Models\FunApp.Services.Models.csproj" />
+    <ProjectReference Include="..\FunApp.Web.Forum\FunApp.Web.Forum.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +38,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Areas\Administration\Pages\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Administration\Pages\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Areas\Administration\Views\Categories\Create.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -50,6 +57,9 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Areas\Administration\Views\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\MyFeature\Pages\_ViewStart.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>

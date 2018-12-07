@@ -1,0 +1,22 @@
+﻿@page ""
+@using X.PagedList.Mvc.Core
+@model FunApp.Web.Pages.Categories.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container" style="margin-top:20px">
+    @for (int i = 0; i < Model.Jokes.Count(); i++)
+    {
+        <a asp-controller="Jokes"
+           asp-action="Details"
+           asp-route-id="@Model.Jokes[i].Id">
+            @Model.Jokes[i].Content
+        </a>
+        <hr />
+    }
+</div>
+
+@Html.PagedListPager(
+    Model.Jokes,
+    page => Url.Page("Details", new { pageNumber = page, id = Model.Id }))
