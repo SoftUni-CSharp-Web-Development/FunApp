@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using FunApp.Data.Models;
 using Microsoft.AspNetCore.Authorization;
+using FunApp.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -94,6 +94,6 @@ namespace FunApp.Web.Areas.Identity.Pages.Account
                 ModelState.AddModelError(string.Empty, "Invalid authenticator code.");
                 return Page();
             }
-        }  
+        }
     }
 }
