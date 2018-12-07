@@ -54,7 +54,7 @@ namespace Sandbox
                         html = webClient.DownloadString(url);
                         break;
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         Thread.Sleep(10000);
                     }
