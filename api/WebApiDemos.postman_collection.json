@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "a6899215-224b-4ceb-b1f6-1d638d509546",
+		"name": "WebApiDemos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FunApp Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/values",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:44390/api/Cities/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44390",
+					"path": [
+						"api",
+						"Cities",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/values",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Bo\",\n    \"population\": 0,\n    \"temperature\": -600\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44390/api/cities/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44390",
+					"path": [
+						"api",
+						"cities",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /api/values",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"Sofia\",\n        \"population\": 2500000,\n        \"temperature\": 3\n    }"
+				},
+				"url": {
+					"raw": "https://localhost:44390/api/cities/Sofia",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44390",
+					"path": [
+						"api",
+						"cities",
+						"Sofia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /api/values",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:44390/api/cities/Plovdiv",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44390",
+					"path": [
+						"api",
+						"cities",
+						"Plovdiv"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
